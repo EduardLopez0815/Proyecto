@@ -26,20 +26,31 @@
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        
+
         <link href="css/sweetalert.css" rel="stylesheet" type="text/css"/>
         <script src="js/sweetalert.min.js" type="text/javascript"/>
-        
+
         <script>
             swal("Good job!", "You clicked the button!", "success")
         </script>
     </head>
     <body class="bg-dark">
+        <%
+            if (request.getAttribute("stError") != null) {
+                //String stMensaje = request.getAttribute("stError").toString();
+        %>
+        <input type="text" hidden="" id="txtMensaje" value="<%=request.getAttribute("stError").toString()%>"/>
+        <script>
+            swal("Mensaje", document.getElementById("txtMensaje").value, "error");
+        </script>
+        <%
+            }
+        %>
         <div class="container">
             <div class="card card-login mx-auto mt-5">
                 <div class="card-header">Login</div>
                 <div class="card-body">
-                    <form>
+                    <form action="LoginController" method="POST">
                         <div class="form-group">
                             <label for="lblEmail">Email</label>
                             <input class="form-control" name="txtEmail" type="email" aria-describedby="emailHelp" placeholder="Ingrese Email">
@@ -62,6 +73,6 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
 </html>

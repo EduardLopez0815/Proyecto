@@ -32,7 +32,42 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
+        try {
+
+            String stMensaje = "";
+
+            if (request.getParameter("txtEmail").equals("")) {
+                stMensaje += "Ingrese email,";
+            }
+            if (request.getParameter("txtPassword").equals("")) {
+                stMensaje += "Ingrese password,";
+            }
+
+            if (!stMensaje.equals("")) {
+                throw new Exception(stMensaje.substring(0, stMensaje.length() - 1));
+            }
+
+            Models.ClsLogin obclsLogin = new Models.ClsLogin();
+
+            obclsLogin.setStEmail(request.getParameter("txtEmail").toString());
+            obclsLogin.setStPassword(request.getParameter("txtPassword").toString());
+
+            Bl.clsLogin obBlclsLogin = new Bl.clsLogin();
+
+            boolean blBandera = obBlclsLogin.validarLogin(obclsLogin);
+
+            if (blBandera) {
+                request.getRequestDispatcher("Index.jsp").forward(request, response);
+            } else {
+                throw new Exception("Email o password incorrecto");
+            }
+
+        } catch (Exception ex) {
+            request.setAttribute("stError", ex.getMessage());
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
