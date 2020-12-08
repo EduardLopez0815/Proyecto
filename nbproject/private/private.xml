@@ -5,10 +5,10 @@
         <group>
             <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/web/PosiblesClientes.jsp</file>
             <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/web/Login.jsp</file>
-            <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/src/java/Models/ClsLogin.java</file>
             <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/web/Index.jsp</file>
             <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/web/Registrar.jsp</file>
             <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/src/java/Controllers/LoginController.java</file>
+            <file>file:/C:/Users/57318/Documents/NetBeansProjects/Proyecto/src/java/Bl/clsLogin.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,7 +10,9 @@ package Models;
  * @author 57318
  */
 public class ClsLogin {
+
     public String stEmail;
+    public String stPassword;
 
     public String getStEmail() {
         return stEmail;
@@ -27,6 +29,5 @@ public class ClsLogin {
     public void setStPassword(String stPassword) {
         this.stPassword = stPassword;
     }
-    
-    public String stPassword;
+
 }

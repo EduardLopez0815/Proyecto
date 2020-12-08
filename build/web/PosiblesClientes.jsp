@@ -26,13 +26,16 @@
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        
+        <link href="css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="js/sweetalert.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
             <div class="card mx-auto mt-5">
                 <div class="card-header">Crear Posibles Clientes</div>
                 <div class="card-body">
-                    <form>
+                    <form action="PosiblesClientesController" method="POST">
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
@@ -52,15 +55,15 @@
                             <div class="form-row">
                                 <div class="col-md-3">
                                     <label name="lblEmpresa">Empresa</label>
-                                    <input type="text" placeholder="Empresa" name="txtEmpresa" class="form-control"/>
+                                    <input type="text" placeholder="Empresa" name="txtEmpresa" class="form-control" required=""/>
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblNombre">Nombre</label>
-                                    <input type="text" placeholder="Nombre" name="txtNombre" class="form-control"/>
+                                    <input type="text" placeholder="Nombre" name="txtNombre" class="form-control" required=""/>
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblApellidos">Apellidos</label>
-                                    <input type="text" placeholder="Apellidos" name="txtApellidos" class="form-control"/>
+                                    <input type="text" placeholder="Apellidos" name="txtApellidos" class="form-control" required=""/>
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblTitulo">Titulo</label>
@@ -72,7 +75,7 @@
                             <div class="form-row">
                                 <div class="col-md-3">
                                     <label name="lblCorreoElectronico">Correo electronico</label>
-                                    <input type="email" placeholder="Correo electronico" name="txtCorreoElectronico" class="form-control"/>
+                                    <input type="email" placeholder="Correo electronico" name="txtCorreoElectronico" class="form-control" required=""/>
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblTelefono">Telefono</label>
@@ -85,6 +88,94 @@
                                 <div class="col-md-3">
                                     <label name="lblMovil">Movil</label>
                                     <input type="text" placeholder="Movil" name="txtMovil" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <label name="lblSitioWeb">Sitio web</label>
+                                    <input type="text" placeholder="Sitio web" name="txtSitioWeb" class="form-control"/>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblFuentePosibleCliente">Fuente de posible cliente</label>
+                                    <select class="from-control" name="ddlFuentePosibleCliente">
+                                        <option value="1" selected="true">--Seleccione--</option>
+                                        <option value="2">Aviso</option>
+                                        <option value="3">Llamada no solicitada</option>
+                                        <option value="4">Recomendacion de empleado</option>
+                                        <option value="5">Recomendacion externa</option>
+                                        <option value="6">Tienda en linea</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblEstadoPosibleCliente">Estado de posible cliente</label>
+                                    <select class="from-control" name="ddlEstadoPosibleCliente">
+                                        <option value="1" selected="true">--Seleccione--</option>
+                                        <option value="2">Intento de contacto</option>
+                                        <option value="3">Contactar en el futuro</option>
+                                        <option value="4">Contactado</option>
+                                        <option value="5">Posible cliente no solicitado</option>
+                                        <option value="6">Posible cliente perdido</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblSector">Sector</label>
+                                    <select class="from-control" name="ddlSector">
+                                        <option value="1" selected="true">--Seleccione--</option>
+                                        <option value="2">APS(Proveedor de servicios de aplicaciones)</option>
+                                        <option value="3">OEM de datos</option>
+                                        <option value="4">ERP(Planificacion de recursos de empresa)</option>
+                                        <option value="5">Gobierno/Ejercito</option>
+                                        <option value="6">Empresa grande</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <label name="lblCantidadEmpleados">Cantidad de empleados</label>
+                                    <input type="number" placeholder="Cantidad de empleados" name="txtCantidadEmpleados" class="form-control"/>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblIngresosAnueales">Ingreses anuales</label>
+                                    <input type="number" placeholder="Ingresos anuelaes" name="txtIngresosAnueales" class="form-control"/>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblCalificacion">Calificacion</label><br>
+                                    <select class="from-control" name="ddlCalificacion">
+                                        <option value="1" selected="true">--Seleccione--</option>
+                                        <option value="2">Adquirido</option>
+                                        <option value="3">Activo</option>
+                                        <option value="4">Cotactado</option>
+                                        <option value="5">Fallo de mercado</option>
+                                        <option value="6">Proyecto cancelado</option>
+                                        <option value="7">Apagar</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblNoParticipacionCorreoElectronico">
+                                        <input type="checkbox" class="from-control" name="chkNoParticipacionCorreoElectronico"/>    
+                                        No participacion correo electronico
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-3">
+                                    <label name="lblIDSkype">ID de Skype</label>
+                                    <input type="text" placeholder="ID de Skype" name="txtIDSkype" class="form-control"/>
+                                </div>
+                                <div class="col-md-3">
+                                    <label name="lblTwitter">Twitter</label>
+                                    <input type="text" placeholder="Twitter" name="txtTwitter" class="form-control"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label name="lblCorreoElectronicoSecundario">Correo electronico secundario</label>
+                                    <input type="email" placeholder="Correo electronico secundario" name="txtCorreoElectronicoSecundario" class="form-control"/>
                                 </div>
                             </div>
                         </div>
