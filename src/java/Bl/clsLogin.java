@@ -13,7 +13,7 @@ public class clsLogin {
 
     public boolean validarLogin(Models.ClsLogin obclsLogin) {
         try {
-            return obclsLogin.getStEmail().equals("eduardlopez@gmail.com")
+            return obclsLogin.getStEmail().equals("lopez@gmail.com")
                     && obclsLogin.getStPassword().equals("123456");
         } catch (Exception ex) {
             throw ex;

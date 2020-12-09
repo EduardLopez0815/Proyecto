@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Posibles clientes</title>
+        <title class="bg-primary">Posibles clientes</title>
         <!-- Bootstrap core CSS-->
         <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- Custom fonts for this template-->
@@ -32,7 +32,8 @@
         <link href="css/sweetalert.css" rel="stylesheet" type="text/css"/>
         <script src="js/sweetalert.min.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body class="bg-secondary">
+
         <%
             Models.clsPosiblesClientes obclsPosiblesClientes = new Models.clsPosiblesClientes();
 
@@ -64,22 +65,10 @@
         %>    
         <div class="container">
             <div class="card mx-auto mt-5">
-                <div class="card-header">Crear Posibles Clientes</div>
+                <div class="card-header"> <b>Crear Posibles Clientes</b> </div>
                 <div class="card-body">
                     <form action="PosiblesClientesController" method="POST">
-                        <div class="form-group">
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <input type="submit" value="Guardar" 
-                                           class="btn btn-primary" name="btnGuardar"/>
-                                    <input type="submit" value="Modificar" 
-                                           class="btn btn-primary" name="btnModificar"/>
-                                    <input type="submit" value="Cancelar" 
-                                           class="btn btn-primary" name="btnCancelar"/>
-                                    <a class="btn btn-primary" href="Index.jsp">Volver</a>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <div class="form-row">
                                 <h1>Informacion de posible cliente</h1>
@@ -151,7 +140,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblFuentePosibleCliente">Fuente de posible cliente</label>
-                                    <select class="from-control" name="ddlFuentePosibleCliente">
+                                    <select class="form-control " name="ddlFuentePosibleCliente">
                                         <option value="1" <%= obclsPosiblesClientes.obclsFuentePosibleCliente != null ? obclsPosiblesClientes.obclsFuentePosibleCliente.getInCodigo() == 1 ? "selected" : "" : ""%>>--Seleccione--</option>
                                         <option value="2" <%= obclsPosiblesClientes.obclsFuentePosibleCliente != null ? obclsPosiblesClientes.obclsFuentePosibleCliente.getInCodigo() == 2 ? "selected" : "" : ""%>>Aviso</option>
                                         <option value="3" <%= obclsPosiblesClientes.obclsFuentePosibleCliente != null ? obclsPosiblesClientes.obclsFuentePosibleCliente.getInCodigo() == 3 ? "selected" : "" : ""%>>Llamada no solicitada</option>
@@ -162,7 +151,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblEstadoPosibleCliente">Estado de posible cliente</label>
-                                    <select class="from-control" name="ddlEstadoPosibleCliente">
+                                    <select class="form-control" name="ddlEstadoPosibleCliente">
                                         <option value="1" <%= obclsPosiblesClientes.obclsEstadoPosibleCliente != null ? obclsPosiblesClientes.obclsEstadoPosibleCliente.getInCodigo() == 1 ? "selected" : "" : ""%>>--Seleccione--</option>
                                         <option value="2" <%= obclsPosiblesClientes.obclsEstadoPosibleCliente != null ? obclsPosiblesClientes.obclsEstadoPosibleCliente.getInCodigo() == 2 ? "selected" : "" : ""%>>Intento de contacto</option>
                                         <option value="3" <%= obclsPosiblesClientes.obclsEstadoPosibleCliente != null ? obclsPosiblesClientes.obclsEstadoPosibleCliente.getInCodigo() == 3 ? "selected" : "" : ""%>>Contactar en el futuro</option>
@@ -173,7 +162,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblSector">Sector</label>
-                                    <select class="from-control" name="ddlSector" >
+                                    <select class="form-control" name="ddlSector" >
                                         <option value="1" <%= obclsPosiblesClientes.obclsSector != null ? obclsPosiblesClientes.obclsSector.getInCodigo() == 1 ? "selected" : "" : ""%>>--Seleccione--</option>
                                         <option value="2" <%= obclsPosiblesClientes.obclsSector != null ? obclsPosiblesClientes.obclsSector.getInCodigo() == 2 ? "selected" : "" : ""%>>APS(Proveedor de servicios de aplicaciones)</option>
                                         <option value="3" <%= obclsPosiblesClientes.obclsSector != null ? obclsPosiblesClientes.obclsSector.getInCodigo() == 3 ? "selected" : "" : ""%>>OEM de datos</option>
@@ -200,7 +189,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label name="lblCalificacion">Calificacion</label><br>
-                                    <select class="from-control" name="ddlCalificacion">
+                                    <select class="form-control" name="ddlCalificacion">
                                         <option value="1" <%= obclsPosiblesClientes.obclsCalificacion != null ? obclsPosiblesClientes.obclsCalificacion.getInCodigo() == 1 ? "selected" : "" : ""%>>--Seleccione--</option>
                                         <option value="2" <%= obclsPosiblesClientes.obclsCalificacion != null ? obclsPosiblesClientes.obclsCalificacion.getInCodigo() == 2 ? "selected" : "" : ""%>>Adquirido</option>
                                         <option value="3" <%= obclsPosiblesClientes.obclsCalificacion != null ? obclsPosiblesClientes.obclsCalificacion.getInCodigo() == 3 ? "selected" : "" : ""%>>Activo</option>
@@ -210,14 +199,13 @@
                                         <option value="7" <%= obclsPosiblesClientes.obclsCalificacion != null ? obclsPosiblesClientes.obclsCalificacion.getInCodigo() == 7 ? "selected" : "" : ""%>>Apagar</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3"><br>
                                     <label name="lblNoParticipacionCorreoElectronico">
                                         <input type="checkbox" class="from-control" 
                                                name="chkNoParticipacionCorreoElectronico"
-                                               <%= obclsPosiblesClientes.getChNoParticipacionCorreoElectronico() == 'S' ? "checked" : " " %>/>    
+                                               <%= obclsPosiblesClientes.getChNoParticipacionCorreoElectronico() == 'S' ? "checked" : " "%>/>    
                                         No participacion correo electronico
                                     </label>
-
                                 </div>
                             </div>
                         </div>
@@ -244,6 +232,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <input type="submit" value="Guardar" 
+                                           class="btn btn-outline-primary" name="btnGuardar"/>
+                                    <input type="submit" value="Modificar" 
+                                           class="btn btn-outline-primary" name="btnModificar"/>
+                                    <input type="submit" value="Cancelar" 
+                                           class="btn btn-outline-primary" name="btnCancelar"/>
+                                    <a class="btn btn-outline-primary position-sticky" href="Index.jsp">Volver</a>
+                                    <input type="text" name="codigoModificar"
+                                           id="codigoModificar" value="<%= obclsPosiblesClientes.getInCodigo()%>"
+                                           hidden=""/>
+                                </div>
+                            </div>
+                        </div>        
                         <div class="from-group">
                             <div class="form-row">
                                 <div class="col-12">
@@ -257,29 +261,31 @@
                         <div class="from-group">
                             <div class="form-row">
                                 <div class="col-12">
-                                    <table class="table table-bordered table-responsive">
-                                        <tr>
-                                            <td>Empresa</td>
-                                            <td>Nombre</td>
-                                            <td>Apellido</td>
-                                            <td>Titulo</td>
-                                            <td>Correo Electronico</td>
-                                            <td>Telefono</td>
-                                            <td>Fax</td>
-                                            <td>Movil</td>
-                                            <td>Sitio Web</td>
-                                            <td>Fuente posible cliente</td>
-                                            <td>Estado posible cliente</td>
-                                            <td>Sector</td>
-                                            <td>Cantidad de empleados</td>
-                                            <td>Ingresos anuales</td>
-                                            <td>Calificacion</td>
-                                            <td>No participacion de correo electronico</td>
-                                            <td>ID de Skype</td>
-                                            <td>Twitter</td>
-                                            <td>Correo electronico secundario</td>
-                                            <td>Opciones</td>
-                                        </tr>
+                                    <table class="table table-bordered table-responsive table-striped">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <td><b>Empresa</b></td>
+                                                <td><b>Nombre</b></td>
+                                                <td><b>Apellido</b></td>
+                                                <td><b>Titulo</b></td>
+                                                <td><b>Correo Electronico</b></td>
+                                                <td><b>Telefono</b></td>
+                                                <td><b>Fax</b></td>
+                                                <td><b>Movil</b></td>
+                                                <td><b>Sitio Web</b></td>
+                                                <td><b>Fuente posible cliente</b></td>
+                                                <td><b>Estado posible cliente</b></td>
+                                                <td><b>Sector</b></td>
+                                                <td><b>Cantidad de empleados</b></td>
+                                                <td><b>Ingresos anuales</b></td>
+                                                <td><b>Calificacion</b></td>
+                                                <td><b>No participacion de correo electronico</b></td>
+                                                <td><b>ID de Skype</b></td>
+                                                <td><b>Twitter</b></td>
+                                                <td><b>Correo electronico secundario</b></td>
+                                                <td><b>Opciones</b></td>
+                                            </tr>
+                                        </thead>
                                         <%
                                             for (Models.clsPosiblesClientes item : lstclsPosiblesClientes) {
                                                 Models.clsFuentePosibleCliente obclsFuentePosibleCliente = item.getObclsFuentePosibleCliente();
@@ -323,7 +329,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
