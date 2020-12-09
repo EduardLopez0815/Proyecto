@@ -11,9 +11,6 @@ package Models;
  */
 public class clsFuentePosibleCliente {
 
-    public int inCodigo;
-    public String stDescripcion;
-
     public int getInCodigo() {
         return inCodigo;
     }
@@ -30,4 +27,6 @@ public class clsFuentePosibleCliente {
         this.stDescripcion = stDescripcion;
     }
 
+    public int inCodigo;
+    public String stDescripcion;
 }

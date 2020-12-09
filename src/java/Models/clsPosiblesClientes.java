@@ -11,26 +11,6 @@ package Models;
  */
 public class clsPosiblesClientes {
 
-    public String stEmpresa;
-    public String stNombre;
-    public String stApellidos;
-    public String stTitulo;
-    public String stCorreoElectronico;
-    public String stTelefono;
-    public String stFax;
-    public String stMovil;
-    public String stSitioWeb;
-    public clsFuentePosibleCliente obclsFuentePosibleCliente;
-    public clsEstadoPosibleCliente obclsEstadoPosibleCliente;
-    public clsSector obclsSector;
-    public int inCantidadEmpleados;
-    public double dbIngresosAnuales;
-    public clsCalificacion obclsCalificacion;
-    public boolean blNoParticipacionCorreoElectronico;
-    public String stIDSkype;
-    public String stTwitter;
-    public String stCorreoElectronicoSecundario;
-
     public String getStEmpresa() {
         return stEmpresa;
     }
@@ -151,12 +131,12 @@ public class clsPosiblesClientes {
         this.obclsCalificacion = obclsCalificacion;
     }
 
-    public boolean isBlNoParticipacionCorreoElectronico() {
-        return blNoParticipacionCorreoElectronico;
+    public char getChNoParticipacionCorreoElectronico() {
+        return chNoParticipacionCorreoElectronico;
     }
 
-    public void setBlNoParticipacionCorreoElectronico(boolean blNoParticipacionCorreoElectronico) {
-        this.blNoParticipacionCorreoElectronico = blNoParticipacionCorreoElectronico;
+    public void setChNoParticipacionCorreoElectronico(char chNoParticipacionCorreoElectronico) {
+        this.chNoParticipacionCorreoElectronico = chNoParticipacionCorreoElectronico;
     }
 
     public String getStIDSkype() {
@@ -182,4 +162,43 @@ public class clsPosiblesClientes {
     public void setStCorreoElectronicoSecundario(String stCorreoElectronicoSecundario) {
         this.stCorreoElectronicoSecundario = stCorreoElectronicoSecundario;
     }
+
+    public int inCodigo;
+
+    public int getInCodigo() {
+        return inCodigo;
+    }
+
+    public void setInCodigo(int inCodigo) {
+        this.inCodigo = inCodigo;
+    }
+
+    public String getStOpcion() {
+        return stOpcion;
+    }
+
+    public void setStOpcion(String stOpcion) {
+        this.stOpcion = stOpcion;
+    }
+
+    public String stOpcion;
+    public String stEmpresa;
+    public String stNombre;
+    public String stApellidos;
+    public String stTitulo;
+    public String stCorreoElectronico;
+    public String stTelefono;
+    public String stFax;
+    public String stMovil;
+    public String stSitioWeb;
+    public clsFuentePosibleCliente obclsFuentePosibleCliente;
+    public clsEstadoPosibleCliente obclsEstadoPosibleCliente;
+    public clsSector obclsSector;
+    public int inCantidadEmpleados;
+    public double dbIngresosAnuales;
+    public clsCalificacion obclsCalificacion;
+    public char chNoParticipacionCorreoElectronico;
+    public String stIDSkype;
+    public String stTwitter;
+    public String stCorreoElectronicoSecundario;
 }
